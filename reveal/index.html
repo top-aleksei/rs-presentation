@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3>Continious Integration (CI)</h3>
+        </section>
+        <section>
+          Development without CI methodology (old school approach)
+          <div class="fragment" style="display: flex; gap: 30px; justify-content: center">
+            <img src="./assets/comment6.png" style="width: 100px; height: 100px" alt="1" />
+            <img src="./assets/comment7.png" style="width: 100px; height: 100px" alt="2" />
+            <img src="./assets/comment8.png" style="width: 100px; height: 100px" alt="3" />
+          </div>
+          <img src="./assets/gitb.png" alt="" class="fragment" />
+        </section>
+        <section>
+          <h2>"MERGE HELL"</h2>
+          <img
+            class="fragment"
+            src="./assets/gitHell.jpeg"
+            alt="mergeHell"
+            style="width: 80%; border-radius: 20px"
+          />
+        </section>
+
+        <section>
+          <h2>How to avoid "merge hell"?</h2>
+          <div class="fragment">
+            <p>Merge more often in develop branch</p>
+            <img
+              src="./assets/gitNoHell.jpeg"
+              alt="noHell"
+              style="width: 80%; border-radius: 20px"
+            />
+          </div>
+        </section>
+        <section>
+          Now we create Pull Request more often, merge conflicts - not a big deal
+          <h3 class="fragment">BUT</h3>
+          <p class="fragment">How to check that we didn't break app with our code?</p>
+        </section>
+
+        <section>
+          <h3>Check application steps:</h3>
+          <ul style="font-size: 2.5rem">
+            <li>Build application</li>
+            <li>Run tests</li>
+            <li>Run linters</li>
+            <li>Check types</li>
+          </ul>
+        </section>
+        <section>
+          Script example for checking application
+          <img src="./assets/scriptsExample.png" alt="scriptExample" />
+        </section>
+        <section>
+          And again we have problems
+          <p class="fragment">1. It's time-consuming to do this operations every time</p>
+          <p class="fragment">
+            2. We have no guarantee that developer has completed all the checks
+          </p>
+          <img
+            class="fragment"
+            src="./assets/automatic.png"
+            alt="automatic"
+            style="width: 300px; height: 300px"
+          />
+        </section>
+        <section>
+          <h2>CI - SOLUTION</h2>
+          <div class="fragment">
+            <p>Provide a quick feedback loop on the quality of the software</p>
+
+            <p>Make the deployment process easily-repeatable</p>
+          </div>
+        </section>
+        <!-- <section>
+          <h2>The trigger</h2>
+          <p>1. Poll for changes to VCS</p>
+          <p>2. Notify CI tool whenever a developer makes a <em>push</em></p>
+        </section> -->
+        <section>
+          <h2>CI PIPLINE</h2>
+          <img src="./assets/CIpipline.png" alt="ciPipline" style="width: 100%" />
+        </section>
+        <section>
+          <h2>The principles of Continuous Integration</h2>
+          <ul>
+            <li>Commit to the mainline</li>
+            <li>Maintain a single-source repository</li>
+            <li>Automate the build</li>
+            <li>Make builds self-testing</li>
+            <li>Build quickly</li>
+            <li>Test in a clone</li>
+            <li>Fix broken builds immediately</li>
+          </ul>
+        </section>
+        <section>
+          <h2>CI tools</h2>
+          <img src="./assets/tools.png" alt="tools" />
+        </section>
+        <section>Thank you for listening</section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
